@@ -1,0 +1,4 @@
+// netlify.toml
+[build]
+command = "CI='' ng build"
+publish = "dist/pmi-frontend"
