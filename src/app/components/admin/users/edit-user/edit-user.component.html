@@ -1,0 +1,54 @@
+<!--=============== EDIT USER ===============-->
+<section class="section__edit-user">
+
+    <div class="section__container container grid">
+        <h3 class="section__title">Editar usuario</h3>
+
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+
+            <ng-container *ngIf="name != null">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors?.['required']">
+                        El nombre es requerido.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        El nombre debe ser minimo de 3 caracteres.
+                    </div>
+                    <div *ngIf="name.errors?.['maxlength']">
+                        El nombre debe ser maximo de 100 caracteres.
+                    </div>
+                </div>
+            </ng-container>
+            <div class="form-div">
+                <label for="name" class="form-tag">Nombre
+                        Completo *</label>
+                <input id="name" formControlName="name" type="text" placeholder="Ingresa el nombre completo"
+                    class="form-input" required>
+            </div>
+
+            <ng-container *ngIf="role != null">
+                <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
+                    <div *ngIf="role.errors?.['required']">
+                        El rol de usuario es requerido.
+                    </div>
+                </div>
+            </ng-container>
+            <div class="form-div">
+                <label for="role" class="form-tag">Rol de usuario *</label>
+                <select formControlName="role" class="custom-select" required>
+                    <option value="administrador">Administrador</option>
+                    <option value="electroencefalograma">Electroencefalograma</option>
+                    <option value="prueba psicologica">Prueba psicológica</option>
+                    <option value="resonancia Magnetica">Resonancia Magnetica</option>
+                </select>
+            </div>
+            
+            <ng-container *ngIf="btnIsLoading">
+                <button disabled class="button__loader"><span class="button__text">Actualizando usuario...</span></button>
+            </ng-container>
+            <ng-container *ngIf="!btnIsLoading">
+                <button [disabled]="editForm.invalid" type="submit" class="button login__form-btn">Actualizar usuario</button>
+            </ng-container>
+        </form>
+    </div>
+</section>

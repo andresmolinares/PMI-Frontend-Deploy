@@ -1,0 +1,25 @@
+<section class="section__create-test_type">
+    <h2 class="section__title">Editar Proceso <span><i class='bx bx-user'></i></span></h2>
+    
+    <form autocomplete="off" [formGroup]="editProcessForm" (ngSubmit)="onSubmit(editProcessForm)">
+
+        <div class="form-div">
+            <label for="description" class="form-tag">Descripción *</label>
+            <input id="first_name" formControlName="description" type="text" placeholder="Ingrese descripción de proceso"
+                class="form-input" required>
+        </div>
+        <div class="form-div">
+            <label for="max_points" class="form-tag">Puntaje Maximo *</label>
+            <input id="max_points" formControlName="max_points" type="text" placeholder="Ingrese el puntaje maximo"
+                class="form-input" required>
+        </div>
+        <div class="form-div">
+            <label for="instruction" class="form-tag">Instrucciones *</label>
+            <textarea name="instruction" id="instruction" formControlName="instruction" type="text" placeholder="Ingrese instruciones"
+                class="form-input" cols="50" rows="10" required>
+            </textarea>
+        </div>
+
+        <button [disabled]="editProcessForm.invalid" type="submit" class="button login__form-btn">Actualizar Prueba</button>
+    </form>
+</section>

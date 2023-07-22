@@ -1,0 +1,17 @@
+<section class="section__create-parameter">
+    <h2 class="section__title">Registrar Parámetro <span><i class='bx bx-user'></i></span></h2>
+    
+    <form autocomplete="off" [formGroup]="createParameterForm" (ngSubmit)="onSubmit(createParameterForm)">
+
+        <div class="form-div">
+            <label for="description" class="form-tag">Descripción *</label>
+            <input id="description" formControlName="description" type="text" placeholder="Descripción del parámetro" class="form-input" required>
+        </div>
+        <div class="form-div">
+            <label for="code" class="form-tag">Código *</label>
+            <input id="code" formControlName="code" type="number" placeholder="Código del parámetro" class="form-input" required>
+        </div>
+
+        <button [disabled]="createParameterForm.invalid" type="submit" class="button login__form-btn">Guardar Parámetro</button>
+    </form>
+</section>

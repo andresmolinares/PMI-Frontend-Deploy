@@ -1,0 +1,28 @@
+/*=============== BREAKPOINTS ===============*/
+/* For x-small devices */
+@media screen and (max-width: 320px) {
+    .search label input {
+        width: 65%;
+    }
+}
+
+/* For small devices */
+@media screen and (min-width: 321px) {
+    .search label input {
+        width: 70%;
+    }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+    .search label input {
+        width: 100%;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 992px) {
+    .search label input {
+        width: 100%;
+    }
+}

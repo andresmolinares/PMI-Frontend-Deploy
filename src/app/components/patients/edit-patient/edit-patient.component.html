@@ -1,0 +1,122 @@
+<section class="section__create-patient">
+    <h2 class="section__title">Editar paciente <span><i class='bx bx-user'></i></span></h2>
+    
+    <form autocomplete="off" [formGroup]="editPatientForm" (ngSubmit)="onSubmit(editPatientForm)">
+        <ng-container *ngIf="code != null">
+            <div *ngIf="code.invalid && (code.dirty || code.touched)" class="alert alert-danger">
+                <div *ngIf="code.errors?.['required']">
+                    El código es requerido.
+                </div>
+                <div *ngIf="code.errors?.['maxlength']">
+                    El código debe ser maximo de 20 caracteres.
+                </div>
+            </div>
+        </ng-container>
+        <div class="form-div">
+            <label for="code" class="form-tag">Código *</label>
+            <input id="code" formControlName="code" type="text" placeholder="Ingrese el código"
+                class="form-input" required>
+        </div>
+
+        <ng-container *ngIf="first_name != null">
+            <div *ngIf="first_name.invalid && (first_name.dirty)" class="alert alert-danger">
+                <div *ngIf="first_name.errors?.['minlength']">
+                    El nombre debe ser minimo de 3 caracteres.
+                </div>
+                <div *ngIf="first_name.errors?.['maxlength']">
+                    El nombre debe ser maximo de 50 caracteres.
+                </div>
+            </div>
+        </ng-container>
+        <div class="form-div">
+            <label for="first_name" class="form-tag">Nombres</label>
+            <input id="first_name" formControlName="first_name" type="text" placeholder="Ingrese el nombre"
+                class="form-input">
+        </div>
+    
+        <ng-container *ngIf="first_surname != null">
+            <div *ngIf="first_surname.invalid && (first_surname.dirty)" class="alert alert-danger">
+                <div *ngIf="first_surname.errors?.['minlength']">
+                    El primer apellido debe ser minimo de 3 caracteres.
+                </div>
+                <div *ngIf="first_surname.errors?.['maxlength']">
+                    El primer apellido debe ser maximo de 50 caracteres.
+                </div>
+            </div>
+        </ng-container>
+        <div class="form-div">
+            <label for="first_surname" class="form-tag">Primer Apellido</label>
+            <input id="first_surname" formControlName="first_surname" type="text" placeholder="Ingrese el primer apellido"
+                class="form-input">
+        </div>
+        
+        <ng-container *ngIf="second_surname != null">
+            <div *ngIf="second_surname.invalid && (second_surname.dirty)" class="alert alert-danger">
+                <div *ngIf="second_surname.errors?.['minlength']">
+                    El segundo apellido debe ser minimo de 3 caracteres.
+                </div>
+                <div *ngIf="second_surname.errors?.['maxlength']">
+                    El segundo apellido debe ser maximo de 50 caracteres.
+                </div>
+            </div>
+        </ng-container>
+        <div class="form-div">
+            <label for="second_surname" class="form-tag">Segundo Apellido</label>
+            <input id="second_surname" formControlName="second_surname" type="text" placeholder="Ingrese el segundo apellido"
+                class="form-input">
+        </div>
+        
+        <div class="form-div">
+            <label for="birth_date" class="form-tag">Fecha de nacimiento</label>
+            <input id="birth_date" formControlName="birth_date" type="date" placeholder="Ingrese la fecha de nacimiento"
+                class="form-input">
+        </div>
+
+        <div class="form-div">
+            <label for="birth_department" class="form-tag">Departamento de nacimiento</label>
+            <select formControlName="birth_department" (ngModelChange)="onChangeDepartment($event)" class="custom-select">
+                <option selected disabled value="">Seleccionar...</option>
+                <option *ngFor="let department of departments" [value]="[department.iso2]">{{department.name}}</option>
+            </select>
+        </div>
+    
+        <div class="form-div">
+            <label for="birth_city" class="form-tag">Ciudad de nacimiento</label>
+            <select formControlName="birth_city" class="custom-select">
+                <option selected disabled value="">Seleccionar...</option>
+                <option *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-div">
+            <label for="institutions_id" class="form-tag">Institución</label>
+            <select formControlName="institutions_id" class="custom-select">
+                <option selected disabled value="">Seleccionar...</option>
+                <option *ngFor="let institution of institutions" [value]="institution.id">{{institution.name}}</option>
+            </select>
+        </div>
+    
+        <ng-container *ngIf="study_years != null">
+            <div *ngIf="study_years.invalid && (study_years.dirty || study_years.touched)" class="alert alert-danger">
+                <div *ngIf="study_years.errors?.['required']">
+                    Los años de estudio es requerido.
+                </div>
+                <div *ngIf="study_years.errors?.['min']">
+                    El minimo de años de estudio es 0.
+                </div>
+            </div>
+        </ng-container>
+        <div class="form-div">
+            <label for="study_years" class="form-tag">Años de estudio *</label>
+            <input id="study_years" formControlName="study_years" type="number" placeholder="Ingrese los años de estudio"
+                class="form-input" min="0" required>
+        </div>
+
+        <ng-container *ngIf="btnIsLoading">
+            <button disabled class="button__loader"><span class="button__text">Actualizando paciente...</span></button>
+        </ng-container>
+        <ng-container *ngIf="!btnIsLoading">
+            <button [disabled]="editPatientForm.invalid" type="submit" class="button login__form-btn">Actualizar Paciente</button>
+        </ng-container>
+    </form>
+</section>

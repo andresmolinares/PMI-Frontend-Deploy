@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="" class="mt-2">
+                    <span class="icon"><i class='bx bx-pointer'></i></span>
+                    <span class="title">Platforma M.I</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['home']" routerLinkActive="router-link-active">
+                    <span class="icon"><i class='bx bxs-home'></i></span>
+                    <span class="title">Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['users']" routerLinkActive="router-link-active">
+                    <span class="icon"><i class='bx bx-user-circle'></i></span>
+                    <span class="title">Usuarios</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['patients']" routerLinkActive="router-link-active">
+                    <span class="icon"><i class='bx bx-user' ></i></span>
+                    <span class="title">Pacientes</span>
+                </a>
+            </li>
+            <!-- <li>
+                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" >
+                    <span class="icon"><i class='bx bx-cog'></i></span>
+                    <span class="title">Gestionar</span>
+                </a>
+                <div id="dropdown-lvl1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" [routerLink]="['parameter_type']" routerLinkActive="router-link-active">Tipos de Parámetros</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['test_types']" routerLinkActive="router-link-active">Tipos de pruebas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li> -->
+            <li>
+                <a [routerLink]="['parameter_type']" routerLinkActive="router-link-active">
+                    <span class="icon"><i class='bx bx-cog'></i></span>
+                    <span class="title">Parámetros</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['tests']" routerLinkActive="router-link-active">
+                    <span class="icon"><i class='bx bx-test-tube'></i></span>
+                    <span class="title">Pruebas</span>
+                </a>
+            </li>
+            <li>
+                <a (click)="logOutConfirmation()" style="cursor: pointer;">
+                    <span class="icon pe-1"><i class='bx bx-log-out'></i></span>
+                    <span class="title">Cerrar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+  

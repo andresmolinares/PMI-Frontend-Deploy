@@ -1,0 +1,735 @@
+<div class="section">
+    <div class="section__content container__shadow mx-1">
+        <mat-stepper class="content-stepper"  [orientation]="(stepperOrientation | async)!" >
+            <mat-step [stepControl]="createPatientForm" label="Fill out your name" [editable]="true">
+                <h2 class="section__title">Datos básicos</h2>
+
+                <form autocomplete="off" [formGroup]="createPatientForm">
+                    <ng-template matStepLabel>Datos básicos</ng-template>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="code != null">
+                                <div *ngIf="code.invalid && (code.dirty || code.touched)" class="alert alert-danger">
+                                    <div *ngIf="code.errors?.['required']">
+                                        El código es requerido.
+                                    </div>
+                                    <div *ngIf="code.errors?.['maxlength']">
+                                        El código debe ser maximo de 20 caracteres.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="code" class="form-tag">Código *</label>
+                                <input id="code" formControlName="code" type="text" placeholder="Ingrese el código"
+                                    class="form-input" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="subject != null">
+                                <div *ngIf="subject.invalid && (subject.dirty || subject.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="subject.errors?.['required']">
+                                        El tipo de sujeto es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="subject" class="form-tag">Tipo de Sujeto *</label>
+                                <select formControlName="subject" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Infractor</option>
+                                    <option value="0">No infractor</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="first_name != null">
+                                <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="first_name.errors?.['required']">
+                                        El nombre es requerido.
+                                    </div>
+                                    <div *ngIf="first_name.errors?.['minlength']">
+                                        El nombre debe ser minimo de 3 caracteres.
+                                    </div>
+                                    <div *ngIf="first_name.errors?.['maxlength']">
+                                        El nombre debe ser maximo de 50 caracteres.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="first_name" class="form-tag">Nombres</label>
+                                <input id="first_name" formControlName="first_name" type="text"
+                                    placeholder="Ingrese el nombre" class="form-input">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="first_surname != null">
+                                <div *ngIf="first_surname.invalid && (first_surname.dirty || first_surname.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="first_surname.errors?.['required']">
+                                        El primer apellido es requerido.
+                                    </div>
+                                    <div *ngIf="first_surname.errors?.['minlength']">
+                                        El primer apellido debe ser minimo de 3 caracteres.
+                                    </div>
+                                    <div *ngIf="first_surname.errors?.['maxlength']">
+                                        El primer apellido debe ser maximo de 50 caracteres.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="first_surname" class="form-tag">Primer Apellido</label>
+                                <input id="first_surname" formControlName="first_surname" type="text"
+                                    placeholder="Ingrese el primer apellido" class="form-input">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="second_surname != null">
+                                <div *ngIf="second_surname.invalid && (second_surname.dirty || second_surname.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="second_surname.errors?.['required']">
+                                        El segundo apellido es requerido.
+                                    </div>
+                                    <div *ngIf="second_surname.errors?.['minlength']">
+                                        El segundo apellido debe ser minimo de 3 caracteres.
+                                    </div>
+                                    <div *ngIf="second_surname.errors?.['maxlength']">
+                                        El segundo apellido debe ser maximo de 50 caracteres.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="second_surname" class="form-tag">Segundo Apellido</label>
+                                <input id="second_surname" formControlName="second_surname" type="text"
+                                    placeholder="Ingrese el segundo apellido" class="form-input">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="institutions_id != null">
+                                <div *ngIf="institutions_id.invalid && (institutions_id.dirty || institutions_id.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="institutions_id.errors?.['required']">
+                                        La institución es requerida.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="institutions_id" class="form-tag">Institución</label>
+                                <select formControlName="institutions_id" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option *ngFor="let institution of institutions" [value]="institution.id">
+                                        {{institution.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="gender != null">
+                                <div *ngIf="gender.invalid && (gender.dirty || gender.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="gender.errors?.['required']">
+                                        El genero es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="gender" class="form-tag">Genero *</label>
+                                <select formControlName="gender" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="m">Masculino</option>
+                                    <option value="f">Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="orthodontic_appliance != null">
+                                <div *ngIf="orthodontic_appliance.invalid && (orthodontic_appliance.dirty || orthodontic_appliance.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="orthodontic_appliance.errors?.['required']">
+                                        El genero es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="orthodontic_appliance" class="form-tag">Aparato de ortodoncia</label>
+                                <select formControlName="orthodontic_appliance" class="custom-select" >
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-div">
+                                <label for="marital_status" class="form-tag">Estado civil</label>
+                                <select formControlName="marital_status" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="soltero">Soltero</option>
+                                    <option value="casado">Casado</option>
+                                    <option value="divorciado">Divorciado</option>
+                                    <option value="viudo">Viudo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="birth_date != null">
+                                <div *ngIf="birth_date.invalid && (birth_date.dirty || birth_date.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="birth_date.errors?.['required']">
+                                        La fecha de nacimiento es requerida.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="birth_date" class="form-tag">Fecha de nacimiento</label>
+                                <input id="birth_date" formControlName="birth_date" type="date"
+                                    placeholder="Ingrese la fecha de nacimiento" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="birth_department != null">
+                                <div *ngIf="birth_department.invalid && (birth_department.dirty || birth_department.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="birth_department.errors?.['required']">
+                                        El departamento de nacimiento es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="birth_department" class="form-tag">Departamento de nacimiento</label>
+                                <select formControlName="birth_department" (ngModelChange)="onChangeDepartment($event)"
+                                    class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option *ngFor="let department of departments" [value]="[department.iso2]">
+                                        {{department.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="birth_city != null">
+                                <div *ngIf="birth_city.invalid && (birth_city.dirty || birth_city.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="birth_city.errors?.['required']">
+                                        La ciudad de nacimiento es requerida.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="birth_city" class="form-tag">Ciudad de nacimiento</label>
+                                <select formControlName="birth_city" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option *ngFor="let city of cities" [value]="[city.name]">{{city.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="schooling_level != null">
+                                <div *ngIf="schooling_level.invalid && (schooling_level.dirty || schooling_level.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="schooling_level.errors?.['required']">
+                                        El nivel de escolaridad es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="schooling_level" class="form-tag">Nivel de escolaridad *</label>
+                                <select formControlName="schooling_level" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="agrafo">Agrafo</option>
+                                    <option value="preescolar">Preescolar</option>
+                                    <option value="básica primaria">Básica Primaria</option>
+                                    <option value="básica secundaria">Básica Secundaria</option>
+                                    <option value="media">Media</option>
+                                    <option value="técnico">Técnico</option>
+                                    <option value="universitario">Universitario</option>
+                                    <option value="postgrado">Postgrado</option>
+                                    <option value="no registra">No registra</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="study_years != null">
+                                <div *ngIf="study_years.invalid && (study_years.dirty || study_years.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="study_years.errors?.['required']">
+                                        Los años de estudio es requerido.
+                                    </div>
+                                    <div *ngIf="study_years.errors?.['min']">
+                                        El minimo de años de estudio es 0.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="study_years" class="form-tag">Años de estudio *</label>
+                                <input id="study_years" formControlName="study_years" type="number"
+                                    placeholder="Ingrese los años de estudio" class="form-input" min="0" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="family_type != null">
+                                <div *ngIf="family_type.invalid && (family_type.dirty || family_type.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="family_type.errors?.['required']">
+                                        El tipo de familia es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="family_type" class="form-tag">Tipo de familia</label>
+                                <select formControlName="family_type" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="nuclear">Familia nuclear</option>
+                                    <option value="extensa">Familia extensa</option>
+                                    <option value="monoparental madre">Familia monoparental madre</option>
+                                    <option value="monoparental">Familia monoparental padre</option>
+                                    <option value="reconstituida">Familia reconstituida</option>
+                                    <option value="recompuesta">Familia recompuesta</option>
+                                    <option value="padres separados">Familia de padres separados</option>
+                                    <option value="homoparental">Familia homoparental</option>
+                                    <option value="cuidador">De cuidador/es</option>
+                                    <option value="no registra">No registra</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="socioeconomic_status != null">
+                                <div *ngIf="socioeconomic_status.invalid && (socioeconomic_status.dirty || socioeconomic_status.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="socioeconomic_status.errors?.['required']">
+                                        Los estrato socioeconomico es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="socioeconomic_status" class="form-tag">Estrato socioeconomico *</label>
+                                <select formControlName="socioeconomic_status" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Nivel 1</option>
+                                    <option value="2">Nivel 2</option>
+                                    <option value="3">Nivel 3</option>
+                                    <option value="4">Nivel 4</option>
+                                    <option value="5">Nivel 5</option>
+                                    <option value="6">Nivel 6</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row gap-2 justify-content-end">
+                        <div class="col-12 col-md-3">
+                            <button matStepperNext type="button" class="button-purple">Siguiente</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="supplDataForm" label="Fill out your address" [editable]="true">
+                <ng-template matStepLabel>Datos complementarios</ng-template>
+                
+                <form autocomplete="off" [formGroup]="supplDataForm">
+                    <h2 class="section__title">Antecedentes familiares</h2>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="children != null">
+                                <div *ngIf="children.invalid && (children.dirty || children.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="children.errors?.['required']">
+                                        'tiene hijos/as?' es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="children" class="form-tag">Tiene hijos/as?</label>
+                                <select formControlName="children" (ngModelChange)="onChangeChildren($event)"
+                                    class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="children_quantity != null">
+                                <div *ngIf="children_quantity.invalid && (children_quantity.dirty || children_quantity.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="children_quantity.errors?.['required']">
+                                        Cantidad de hijos/as es requerida. Si no tiene ingrese 0.
+                                    </div>
+                                    <div *ngIf="children_quantity.errors?.['min']">
+                                        Cantidad de hijos/as debe ser minimo 0.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="children_quantity" class="form-tag">Cantidad de hijos/as</label>
+                                <input #asChildrenQuantity id="children_quantity" type="number" minlength="0"
+                                    formControlName="children_quantity" class="form-input"
+                                    placeholder="Ingrese la cantidad de hijos/as">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="sibling != null">
+                                <div *ngIf="sibling.invalid && (sibling.dirty || sibling.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="sibling.errors?.['required']">
+                                        'tiene hermanos/as?' es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="sibling" class="form-tag">Tiene hermanos/as?</label>
+                                <select formControlName="sibling" (ngModelChange)="onChangeSibling($event)"
+                                    class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="sibling_quantity != null">
+                                <div *ngIf="sibling_quantity.invalid && (sibling_quantity.dirty || sibling_quantity.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="sibling_quantity.errors?.['required']">
+                                        Cantidad de hermanos/as es requerida. Si no tiene ingrese 0.
+                                    </div>
+                                    <div *ngIf="sibling_quantity.errors?.['min']">
+                                        Cantidad de hermanos/as debe ser minimo 0.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="sibling_quantity" class="form-tag">Cantidad de hermanos/as</label>
+                                <input #asSiblingQuantity type="number" minlength="0" formControlName="sibling_quantity"
+                                    class="form-input" placeholder="Ingrese la cantidad de hermanos/as">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section__title">Antecedentes comportamentales</h2>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="sibling_disciplinary_record != null">
+                                <div *ngIf="sibling_disciplinary_record.invalid && (sibling_disciplinary_record.dirty || sibling_disciplinary_record.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="sibling_disciplinary_record.errors?.['required']">
+                                        Antecedentes disciplinarios de hermanos/as es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="sibling_disciplinary_record" class="form-tag">Tiene antecedentes disciplinarios ?</label>
+                                <select formControlName="sibling_disciplinary_record" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="sibling_spa_use != null">
+                                <div *ngIf="sibling_spa_use.invalid && (sibling_spa_use.dirty || sibling_spa_use.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="sibling_spa_use.errors?.['required']">
+                                        Consumo de SPA en hermanos/as es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="sibling_spa_use" class="form-tag">Consumo de SPA en hermanos ?</label>
+                                <select formControlName="sibling_spa_use" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="gangster != null">
+                                <div *ngIf="gangster.invalid && (gangster.dirty || gangster.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="gangster.errors?.['required']">
+                                        Debe indicar si esta en pandillismo.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="gangster" class="form-tag">Pandillismo ? *</label>
+                                <select formControlName="gangster" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="spa_use != null">
+                                <div *ngIf="spa_use.invalid && (spa_use.dirty || spa_use.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="spa_use.errors?.['required']">
+                                        Consumidor de SPA es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="spa_use" class="form-tag">Consumidor de SPA ? *</label>
+                                <select formControlName="spa_use" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="smokes != null">
+                                <div *ngIf="smokes.invalid && (smokes.dirty || smokes.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="smokes.errors?.['required']">
+                                        Debe indicar si fuma cigarrillo/tabaco.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="smokes" class="form-tag">Fuma cigarrillo/tabaco ?</label>
+                                <select formControlName="smokes" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="drink_alcohol != null">
+                                <div *ngIf="drink_alcohol.invalid && (drink_alcohol.dirty || drink_alcohol.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="drink_alcohol.errors?.['required']">
+                                        Debe indicar si toma alcohol.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="drink_alcohol" class="form-tag">Toma alcohol ? *</label>
+                                <select formControlName="drink_alcohol" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="weed != null">
+                                <div *ngIf="weed.invalid && (weed.dirty || weed.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="weed.errors?.['required']">
+                                        Debe indicar si fuma marihuana.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="weed" class="form-tag">Fuma marihuana ? *</label>
+                                <select formControlName="weed" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="cocaine != null">
+                                <div *ngIf="cocaine.invalid && (cocaine.dirty || cocaine.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="cocaine.errors?.['required']">
+                                        Debe indicar si fuma cocaína.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="cocaine" class="form-tag">Fuma cocaína ? *</label>
+                                <select formControlName="cocaine" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row gap-2 justify-content-end">
+                        <div class="col-12 col-md-3">
+                            <button matStepperPrevious type="button" class="button-orange">Anterior</button>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button matStepperNext type="button" class="button-purple">Siguiente</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="lawViolationForm" label="Fill out your phone number" [editable]="true">
+                <h2 class="section__title">Antecedentes Judiciales</h2>
+
+                <form autocomplete="off" [formGroup]="lawViolationForm">
+                    <ng-template matStepLabel>Antecedentes judiciales</ng-template>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="sentence_months != null">
+                                <div *ngIf="sentence_months.invalid && (sentence_months.dirty || sentence_months.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="sentence_months.errors?.['required']">
+                                        Meses de sentencia es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="sentence_months" class="form-tag">Meses de sentencia</label>
+                                <input type="number" minlength="0" formControlName="sentence_months" class="form-input"
+                                     placeholder="Ingrese los meses de sentencia">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="admission_date != null">
+                                <div *ngIf="admission_date.invalid && (admission_date.dirty || admission_date.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="admission_date.errors?.['required']">
+                                        La fecha de ingreso es requerida.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="admission_date" class="form-tag">Fecha de ingreso</label>
+                                <input type="date" minlength="0" formControlName="admission_date" class="form-input"
+                                     placeholder="Ingrese la fecha de ingreso">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="recidivist != null">
+                                <div *ngIf="recidivist.invalid && (recidivist.dirty || recidivist.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="recidivist.errors?.['required']">
+                                        reincidente es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="recidivist" class="form-tag">Reincidente *</label>
+                                <select formControlName="recidivist" (ngModelChange)="onChangeRecidivist($event)"
+                                    class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="recidivism_quantity != null">
+                                <div *ngIf="recidivism_quantity.invalid && (recidivism_quantity.dirty || recidivism_quantity.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="recidivism_quantity.errors?.['required']">
+                                        Cantidad de reincidencias es requerida. si no tiene ingrese 0.
+                                    </div>
+                                    <div *ngIf="recidivism_quantity.errors?.['min']">
+                                        Cantidad de reincidencias debe ser minimo 0.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="recidivism_quantity" class="form-tag">Cantidad de reincidencias</label>
+                                <input #asRecidivismQuantity type="number" minlength="0"
+                                    formControlName="recidivism_quantity" class="form-input"
+                                    placeholder="Ingrese la cantidad de reincidencias">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mb-4">
+                        <div class="col">
+                            <h2 class="section__title">Tipo de condena </h2>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="button-purple" (click)="addCrimeTypeSelect()">Añadir</button>
+                        </div>
+                    </div>
+                    
+                    <ng-container formArrayName="crime_types">
+                        <div class="row" *ngFor="let item of formArrayCrimeType.controls; let i = index" [formGroupName]="i">
+                            <div class="col-8 col-md-10 col-lg-10">
+                                <div class="form-div">
+                                    <label for="crime_type" class="form-tag">Tipo de condena</label>
+                                    <select formControlName="crime_type" class="custom-select">
+                                        <option selected disabled value="">Seleccionar...</option>
+                                        <option [value]="null">Ninguno</option>
+                                        <option *ngFor="let parameter of parameters" [value]="parameter.id" >{{ parameter.description }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-2 col-lg-2">
+                                <button class="button-orange col-3" (click)="removeCrimeTypeSelect(i)"><i class='bx bx-trash bx-sm'></i></button>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <div class="row gap-2 justify-content-end">
+                        <div class="col-12 col-md-3">
+                            <button matStepperPrevious type="button" matStepperPrevious
+                                class="button-orange">Anterior</button>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <ng-container *ngIf="!btnIsLoading">
+                                <button
+                                    (click)="onSubmit(lawViolationForm, createPatientForm, supplDataForm)"
+                                    [disabled]="lawViolationForm.invalid || createPatientForm.invalid || supplDataForm.invalid"
+                                    type="button" class="button">Guardar</button>
+                            </ng-container>
+                            <ng-container *ngIf="btnIsLoading">
+                                <button disabled class="button__loader"><span
+                                        class="button__text">Guardando...</span></button>
+                            </ng-container>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+        </mat-stepper>
+    </div>
+</div>

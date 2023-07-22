@@ -1,0 +1,95 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+//GAMA DE COLORES
+$my-primary-color: (
+    "50": "#e6f3ff",
+    "100": "#c4e0ff",
+    "200": "#a0ceff",
+    "300": "#7fbbff",
+    "400": "#6aabff",
+    "500": "#5f9cff",
+    "600": "#5b8ef0",
+    "700": "#557bdb",
+    "800": "#506ac9",
+    "900": "#474aa8",
+    contrast: (
+        "50": "#fef5e3",
+        "100": "#fee4b9",
+        "200": "#ffd48c",
+        "300": "#ffc25f",
+        "400": "#ffb440",
+        "500": "#ffa72a",
+        "600": "#fc9b27",
+        "700": "#f68c22",
+        "800": "#f07d1e",
+        "900": "#e76417"
+    )
+);
+
+$my-accent-color: (
+    "50": "#ddfbff",
+    "100": "#a8f4fe",
+    "200": "#5fecff",
+    "300": "#00e3fd",
+    "400": "#00dbf8",
+    "500": "#00d3f6",
+    "600": "#00c2e1",
+    "700": "#00acc5",
+    "800": "#0098ab",
+    "900": "#00747c",
+    contrast: (
+        "50": "#eee9ff",
+        "100": "#d2c8fe",
+        "200": "#b3a3fe",
+        "300": "#917dff",
+        "400": "#725fff",
+        "500": "#4b42fd",
+        "600": "#393ef6",
+        "700": "#0f36ed",
+        "800": "#0030e8",
+        "900": "#0026d9"
+    )
+);
+
+$my-warn-color: (
+    "50": "#f5e5ff",
+    "100": "#e5bdfe",
+    "200": "#d490ff",
+    "300": "#c25fff",
+    "400": "#b231fe",
+    "500": "#a000f4",
+    "600": "#8d00ee",
+    "700": "#7000e7",
+    "800": "#5309df",
+    "900": "#0013d2",
+    contrast: (
+        "50": "#ffe4ee",
+        "100": "#febcd5",
+        "200": "#fe8fb9",
+        "300": "#ff5f9c",
+        "400": "#fe3585",
+        "500": "#fd006d",
+        "600": "#eb006a",
+        "700": "#d40065",
+        "800": "#bf0062",
+        "900": "#98005b"
+    )
+);
+
+//PALETA DE COLORES
+$my-palette-primary: mat-palette($my-primary-color);
+$my-palette-accent: mat-palette($my-accent-color);
+$my-palette-warn: mat-palette($my-warn-color);
+
+//TEMA PROPIO
+$my-theme: mat-light-theme((
+    color: (
+        primary: $my-palette-primary,
+        accent: $my-palette-accent,
+        warn: $my-palette-warn
+    )
+));
+
+//APLICAR TEMA EN ANGULAR
+@include angular-material-theme($my-theme);

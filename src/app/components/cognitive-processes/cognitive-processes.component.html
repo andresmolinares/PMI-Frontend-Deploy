@@ -1,0 +1,46 @@
+<div class="section">
+    <div class="section__content container__shadow mx-3">
+        <h2 class="section__title">
+            {{ test.description }} <span> <i class="bx bx-test-tube"></i></span>
+        </h2>
+        <mat-tab-group mat-align-tabs="center" #matGroup>
+            <!-- Proceso -->
+            <mat-tab *ngFor="let process of processes; let i = index" label="{{ process.description }}">
+                <div class="text-center col-md-12" style="overflow: hidden;">
+                    <h2 class="section__subtitle">{{ process.description }}</h2>
+                    <div class="row my-4">
+                        <!-- Tareas y resultados -->
+                        <ng-container *ngFor="let task of process.psychological_tasks; let x = index">
+                            <div class="col-sm-4 mt-4">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{task.description}}</h3>
+                                    <p class="card-text">Puntaje: {{task.psychological_results.score}}</p>
+                                </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Total" *ngIf="testScore">
+                <div class="text-center col-md-12" style="overflow: hidden;">
+                    <h2 class="section__subtitle">Puntaje total</h2>
+                    <div class="row my-4">
+                        <!-- Tareas y resultados -->
+                        <ng-container>
+                            <div class="col-sm-4 mt-4">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Total de {{ test.description }}</h3>
+                                    <p class="card-text">Puntaje: {{testScore}}</p>
+                                </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

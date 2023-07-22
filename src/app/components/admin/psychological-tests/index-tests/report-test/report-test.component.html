@@ -1,0 +1,36 @@
+<div class="section">
+    <div class="section__content container__shadow mx-3">
+        <h2 class="section__title">Reporte de prueba: {{ description }}<span></span></h2>
+
+        <div class="col-12 col-md-12">
+            <div class="form-div">
+                <label for="subject" class="form-tag">Tipo de Sujeto *</label>
+                <select [formControl]="subject" class="custom-select" required>
+                    <option selected value="">Todos</option>
+                    <option value="1">Infractor</option>
+                    <option value="0">No infractor</option>
+                </select>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-4 text-center">
+                <h2><b>Promedio puntaje: </b>{{ testAverage }}</h2>
+            </div>
+            <div class="col-4 text-center">
+                <h2><b>Puntaje minimo: </b>{{ minScore }}</h2>
+            </div>
+            <div class="col-4 text-center">
+                <h2><b>Puntaje maximo: </b>{{ maxScore }}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="w-50 mx-auto mt-4">
+                <canvas #canvas id="canvas"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
