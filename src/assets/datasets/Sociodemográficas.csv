@@ -1,0 +1,140 @@
+id;group;subject;gender;age;study_years;marital_status;schooling_level;family_type;socioeconomic_status;children_quantity;sibling_quantity;gangster;spa_use;drink_alcohol;weed;cocaine
+1005;SG;1;m;19;11;soltero;básica secundaria;monoparental madre;1;0;0;0;0;1;1;1
+1009;SG;1;m;18;11;soltero;básica secundaria;reconstituida;1;0;0;1;1;1;1;1
+1013;SG;1;m;17;6;soltero;básica secundaria;extensa;1;0;0;0;0;0;1;1
+1017;SG;1;m;19;10;soltero;básica secundaria;monoparental madre;1;0;0;1;1;1;1;0
+1018;SG;1;m;19;11;soltero;básica secundaria;nuclear;2;0;0;0;0;0;0;0
+1020;SG;1;m;18;11;soltero;básica secundaria;monoparental madre;2;0;0;0;1;1;0;0
+1021;SG;1;m;18;12;soltero;básica secundaria;reconstituida;1;0;0;1;1;1;1;1
+1027;SG;1;m;18;5;soltero;básica primaria;reconstituida;1;0;0;0;0;0;0;0
+1028;SG;1;m;19;12;soltero;básica secundaria;nuclear;1;0;0;1;1;1;1;1
+1029;SG;1;m;17;8;soltero;básica secundaria;extensa;1;0;0;1;1;1;0;0
+1030;SG;1;m;18;12;soltero;básica secundaria;reconstituida;1;0;0;0;1;1;1;1
+1032;SG;1;m;18;12;soltero;básica secundaria;reconstituida;1;0;0;0;0;0;0;0
+1033;SG;1;m;17;6;soltero;básica secundaria;extensa;1;0;0;0;1;1;1;0
+1035;SG;1;m;17;6;soltero;básica secundaria;reconstituida;1;0;0;0;1;0;1;1
+1037;SG;1;m;18;8;soltero;básica secundaria;reconstituida;1;0;0;0;0;0;0;0
+1038;SG;1;m;19;11;soltero;básica secundaria;extensa;1;0;0;0;1;0;1;1
+1039;SG;1;m;16;11;soltero;básica secundaria;reconstituida;1;0;0;0;0;0;0;0
+1040;SG;1;m;19;8;soltero;básica secundaria;reconstituida;1;0;0;0;1;0;1;1
+1041;SG;1;m;15;8;soltero;básica secundaria;nuclear;2;0;0;1;1;1;1;1
+1042;SG;1;m;18;7;soltero;básica secundaria;nuclear;1;0;0;1;1;0;1;1
+1043;SG;1;m;18;8;soltero;básica secundaria;monoparental madre;1;0;0;1;1;1;1;1
+1044;SG;1;m;17;8;soltero;básica secundaria;monoparental madre;1;0;0;0;1;1;1;1
+1045;SG;1;m;18;5;soltero;básica primaria;extensa;1;0;0;1;1;0;1;1
+1046;SG;1;m;18;12;soltero;básica secundaria;nuclear;2;0;0;1;1;1;1;1
+1047;SG;1;m;18;5;soltero;básica primaria;nuclear;1;0;0;1;1;0;1;1
+1048;SG;1;m;17;10;soltero;básica secundaria;nuclear;1;0;0;1;1;1;1;1
+1050;SG;1;m;17;4;soltero;básica primaria;reconstituida;1;0;0;0;1;0;1;1
+1051;SG;1;m;16;6;soltero;básica secundaria;extensa;1;0;0;0;1;0;1;1
+1054;SG;1;m;17;9;soltero;básica secundaria;reconstituida;1;0;0;0;1;1;1;0
+1056;SG;1;m;16;5;soltero;básica primaria;extensa;1;0;0;0;1;0;1;1
+1057;SG;1;m;18;4;soltero;básica primaria;monoparental madre;1;0;0;1;1;1;1;1
+1058;SG;1;m;17;5;soltero;básica primaria;extensa;1;0;0;1;1;1;1;0
+1059;SG;1;m;16;4;soltero;básica primaria;monoparental madre;1;0;0;1;1;1;1;1
+1063;SG;1;m;17;6;soltero;básica secundaria;nuclear;1;0;0;0;1;0;1;0
+1064;SG;1;m;15;7;soltero;básica secundaria;reconstituida;1;0;0;0;1;1;1;1
+1065;SG;1;m;17;8;soltero;básica secundaria;extensa;1;0;0;0;1;1;1;1
+1066;SG;1;m;17;7;soltero;básica secundaria;monoparental madre;1;0;0;1;1;1;1;1
+1067;SG;1;m;18;7;soltero;básica secundaria;nuclear;1;0;0;1;1;1;1;1
+1070;SG;1;m;17;7;soltero;básica primaria;nuclear;1;0;0;1;0;0;0;0
+1072;SG;1;m;17;8;soltero;básica primaria;extensa;1;0;0;0;0;0;0;0
+1073;SG;1;m;15;3;soltero;básica primaria;reconstituida;1;0;0;0;0;0;0;0
+1074;SG;1;m;16;9;soltero;básica secundaria;nuclear;2;0;0;0;0;0;0;0
+1075;SG;1;m;16;6;soltero;básica secundaria;reconstituida;1;0;0;0;1;1;1;1
+1076;SG2;1;m;18;6;soltero;básica secundaria;monoparental;1;0;0;1;1;1;1;1
+1077;SG2;1;m;17;11;soltero;básica secundaria;recompuesta;1;0;0;0;0;0;0;0
+1078;SG2;1;m;17;2;soltero;básica primaria;nuclear;1;0;0;0;1;1;1;1
+1079;SG2;1;m;16;5;soltero;básica primaria;nuclear;1;0;0;0;1;1;1;1
+1081;SG2;1;m;17;8;soltero;básica secundaria;monoparental;1;0;0;1;1;1;1;1
+1083;SG2;1;m;18;9;soltero;básica secundaria;extensa;1;0;0;1;1;1;1;1
+1084;SG2;1;m;17;5;soltero;básica primaria;extensa;1;0;0;0;1;1;1;1
+1087;SG2;1;m;17;8;soltero;básica secundaria;extensa;1;0;0;0;0;0;0;0
+1096;SG2;1;m;16;7;soltero;básica secundaria;reconstituida;1;0;0;0;1;1;1;1
+1097;SG2;1;m;16;3;soltero;básica primaria;extensa;1;0;0;0;1;0;1;0
+1100;SG2;1;m;15;7;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1103;SG2;1;m;18;7;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1104;SG2;1;m;17;7;no registra;básica secundaria;no registra;1;0;0;1;1;1;1;1
+1106;SG2;1;m;15;10;no registra;básica secundaria;no registra;1;0;0;0;0;0;0;0
+1107;SG2;1;m;17;10;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1108;SG2;1;m;15;3;no registra;básica primaria;no registra;1;0;0;0;1;1;1;1
+1109;SG2;1;m;16;11;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1110;SG2;1;m;15;7;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1111;SG2;1;m;18;6;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1112;SG2;1;m;18;8;no registra;básica secundaria;no registra;1;0;0;0;0;0;0;0
+1113;SG2;1;m;18;11;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1114;SG2;1;m;16;8;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1115;SG2;1;m;16;4;no registra;básica primaria;no registra;1;0;0;0;1;1;1;1
+2002;CG;0;m;15;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2003;CG;0;m;18;11;no registra;técnico;no registra;2;0;0;0;1;1;0;0
+2004;CG;0;m;18;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2005;CG;0;m;16;10;no registra;media;no registra;2;0;0;0;1;1;0;0
+2006;CG;0;m;17;10;no registra;media;no registra;2;0;0;0;1;1;0;0
+2007;CG;0;m;15;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2008;CG;0;m;16;11;no registra;media;no registra;2;0;0;0;1;1;0;0
+2009;CG;0;m;16;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2011;CG;0;m;15;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2012;CG;0;m;17;10;no registra;media;no registra;2;0;0;0;1;1;0;0
+2014;CG;0;m;15;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2016;CG;0;m;15;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2018;CG;0;m;17;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2019;CG;0;m;16;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2020;CG;0;m;14;9;no registra;básica secundaria;no registra;2;0;0;0;0;0;0;0
+2021;CG;0;m;16;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2022;CG;0;m;16;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2023;CG;0;m;16;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2026;CG;0;m;18;12;no registra;media;no registra;2;0;0;0;0;0;0;0
+2028;CG;0;m;14;7;no registra;básica secundaria;no registra;2;0;0;0;0;0;0;0
+2029;CG;0;m;15;9;no registra;media;no registra;1;0;0;0;0;0;0;0
+2030;CG;0;m;18;11;no registra;media;no registra;1;0;0;0;0;0;0;0
+2031;CG;0;m;15;10;no registra;básica secundaria;no registra;1;0;0;0;0;0;0;0
+2033;CG;0;m;17;12;no registra;universitario;no registra;2;0;0;0;0;0;0;0
+2034;CG;0;m;15;10;no registra;básica secundaria;no registra;2;0;0;0;0;0;0;0
+2036;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;1;1;0;0
+2037;CG;0;m;17;12;no registra;universitario;no registra;2;0;0;0;0;0;0;0
+2038;CG;0;m;16;11;no registra;básica secundaria;no registra;2;0;0;0;0;0;0;0
+2040;CG;0;m;17;11;no registra;básica secundaria;no registra;2;0;0;0;0;0;0;0
+2043;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2044;CG;0;m;15;10;no registra;media;no registra;3;0;0;0;0;0;0;0
+2045;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2046;CG;0;m;16;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2047;CG;0;m;18;11;no registra;media;no registra;1;0;0;0;0;0;0;0
+2048;CG;0;m;17;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2050;CG;0;m;18;11;no registra;media;no registra;1;0;0;0;0;0;0;0
+2051;CG;0;m;15;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2052;CG;0;m;18;11;no registra;media;no registra;1;0;0;0;0;0;0;0
+2054;CG;0;m;17;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2055;CG;0;m;17;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2056;CG;0;m;16;10;no registra;media;no registra;2;0;0;0;1;1;0;0
+2057;CG;0;m;18;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2059;CG;0;m;17;10;no registra;media;no registra;1;0;0;0;1;1;0;0
+2060;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2061;CG;0;m;17;11;no registra;media;no registra;3;0;0;0;0;0;0;0
+2062;CG;0;m;17;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2063;CG;0;m;18;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2064;CG;0;m;17;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2065;CG;0;m;17;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2066;CG;0;m;18;11;no registra;media;no registra;2;0;0;0;0;0;0;0
+2067;CG;0;m;18;11;no registra;media;no registra;2;0;0;0;1;1;0;0
+2068;CG;0;m;17;11;no registra;media;no registra;1;0;0;0;1;1;0;0
+2070;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;1;1;0;0
+2071;CG;0;m;16;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2072;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2074;CG;0;m;17;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2075;CG;0;m;16;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2077;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2079;CG;0;m;18;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2080;CG;0;m;17;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2081;CG;0;m;15;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+2082;CG;0;m;16;10;no registra;media;no registra;1;0;0;0;0;0;0;0
+1053;SG;1;m;15;10;no registra;básica secundaria;no registra;1;0;0;0;0;0;0;0
+1061;SG;1;m;17;10;no registra;básica secundaria;no registra;1;0;0;1;1;1;1;1
+1068;SG;1;m;17;5;no registra;básica primaria;no registra;1;0;0;0;1;1;1;1
+1069;SG;1;m;18;11;no registra;básica secundaria;no registra;1;0;0;0;0;0;0;0
+1071;SG;1;m;17;9;no registra;básica primaria;no registra;1;0;0;0;0;0;0;0
+1099;SG3;1;m;17;8;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+1105;SG3;1;m;16;10;no registra;básica secundaria;no registra;1;0;0;0;1;1;1;1
+2001;CG;0;m;15;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2010;CG;0;m;16;10;no registra;media;no registra;2;0;0;0;0;0;0;0
+2015;CG;0;m;15;10;no registra;media;no registra;1;0;0;0;1;1;0;0
+2017;CG;0;m;15;10;no registra;media;no registra;2;0;0;1;1;0;0;0

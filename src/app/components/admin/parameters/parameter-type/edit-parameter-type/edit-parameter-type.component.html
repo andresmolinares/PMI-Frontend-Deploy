@@ -1,0 +1,14 @@
+<section class="section__create-parameterType">
+    <h2 class="section__title">Editar tipo de parámetro <span><i class='bx bx-user'></i></span></h2>
+    
+    <form autocomplete="off" [formGroup]="editParameterTypeForm" (ngSubmit)="onSubmit(editParameterTypeForm)">
+
+        <div class="form-div">
+            <label for="description" class="form-tag">Descripción *</label>
+            <input id="first_name" formControlName="description" type="text" placeholder="Ingrese el nombre del tipo parámetro"
+                class="form-input" required>
+        </div>
+
+        <button [disabled]="editParameterTypeForm.invalid" type="submit" class="button login__form-btn">Actualizar Tipo Parámetro</button>
+    </form>
+</section>

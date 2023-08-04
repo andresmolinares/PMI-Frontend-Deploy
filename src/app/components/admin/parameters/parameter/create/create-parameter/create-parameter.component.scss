@@ -1,0 +1,34 @@
+.form-div {
+    position: relative;
+    margin-bottom: 1.5rem;
+    height: 3rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For x-small devices */
+@media screen and (max-width: 320px){
+    .section__create-parameter {
+        padding: 0.2rem 0rem 0.1rem; /*Top, X, Bottom*/
+    }
+}
+
+/* For small devices */
+@media screen and (min-width: 321px){
+    .section__create-parameter {
+        padding: 0.1rem 0.25rem 0.1rem; /*Top, X, Bottom*/
+    }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px){
+    .section__create-parameter {
+        padding: 0.2rem 5.5rem 0.2rem; /*Top, X, Bottom*/
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 992px) {
+    .section__create-parameter {
+        padding: 0.2rem 5.8rem 0.1rem; /*Top, X, Bottom*/
+    }
+}
