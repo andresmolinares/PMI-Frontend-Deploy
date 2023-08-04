@@ -1,3 +1,3 @@
 export var GLOBAL = {
-    url: 'http://localhost:3001/api/',
+    url: 'https://pmi-backend-w4rz.onrender.com/api/',
 }
