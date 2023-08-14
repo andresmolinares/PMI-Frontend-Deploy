@@ -36,7 +36,6 @@ export class CognitiveTestsComponent implements OnInit {
     this._psychologicalTestsService.getPsychologicalTests(this.token).subscribe(
       response => {
         this.psychologicalTests = response.data;
-        console.log(this.psychologicalTests);
         this.dataSource = new MatTableDataSource(this.psychologicalTests);
         this.dataLoading = false;
       },

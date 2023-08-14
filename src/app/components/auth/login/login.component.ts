@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
             this._cookieService.set('token', response.data.token, 1, '/', '', true, 'Lax');
             this._cookieService.set('username', response.data.user.username, 1, '/', '', true, 'Lax');
             this._cookieService.set('id', response.data.user.id, 1, '/', '', true, 'Lax');
-            this._router.navigate(['/PMI/home']);
+            this._router.navigate(['/PMI/patients']);
 
             iziToast.success({
               title: 'Exito',

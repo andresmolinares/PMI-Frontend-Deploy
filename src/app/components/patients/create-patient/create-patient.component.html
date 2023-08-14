@@ -63,22 +63,6 @@
                 <option value="f">Femenino</option>
             </select>
         </div>
-
-        <ng-container *ngIf="first_name != null">
-            <div *ngIf="first_name.invalid && (first_name.dirty)" class="alert alert-danger">
-                <div *ngIf="first_name.errors?.['minlength']">
-                    El nombre debe ser Mínimo de 3 caracteres.
-                </div>
-                <div *ngIf="first_name.errors?.['maxlength']">
-                    El nombre debe ser Máximo de 50 caracteres.
-                </div>
-            </div>
-        </ng-container>
-        <div class="form-div">
-            <label for="first_name" class="form-tag">Nombres</label>
-            <input id="first_name" formControlName="first_name" type="text" placeholder="Ingrese el nombre"
-                class="form-input">
-        </div>
         
         <ng-container *ngIf="age != null">
             <div *ngIf="age.invalid && (age.dirty)" class="alert alert-danger">

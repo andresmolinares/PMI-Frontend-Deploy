@@ -67,21 +67,6 @@ export class DetailsPatientComponent implements OnInit {
         Validators.maxLength(20)
       ]),
 
-      first_name: new FormControl(null, [
-        Validators.minLength(3),
-        Validators.maxLength(50)
-      ]),
-
-      first_surname: new FormControl(null, [
-        Validators.minLength(3),
-        Validators.maxLength(50)
-      ]),
-
-      second_surname: new FormControl(null, [
-        Validators.minLength(3),
-        Validators.maxLength(50)
-      ]),
-
       subject: new FormControl(null, [
         Validators.required,
       ]),
@@ -97,12 +82,6 @@ export class DetailsPatientComponent implements OnInit {
       ]),
 
       birth_date: new FormControl(null, [
-      ]),
-
-      birth_department: new FormControl(null, [
-      ]),
-
-      birth_city: new FormControl(null, [
       ]),
 
       institutions_id: new FormControl(null, [
@@ -306,12 +285,7 @@ export class DetailsPatientComponent implements OnInit {
           gender: this.patient.gender ? this.patient.gender : '',
           orthodontic_appliance: this.patient.orthodontic_appliance ? this.patient.orthodontic_appliance : '',
           marital_status: this.patient.marital_status ? this.patient.marital_status : '',
-          first_name: this.patient.first_name,
-          first_surname: this.patient.first_surname,
-          second_surname: this.patient.second_surname,
           birth_date: this.formatDate(this.patient.birth_date),
-          birth_department: this.patient.birth_department,
-          birth_city: this.patient.birth_city,
           institutions_id: this.patient.institutions_id,
           study_years: this.patient.study_years,
           schooling_level: this.patient.schooling_level ? this.patient.schooling_level : '',
@@ -604,12 +578,6 @@ export class DetailsPatientComponent implements OnInit {
   //basic data functions
   get id() { return this.createPatientForm.get('id'); }
 
-  get first_name() { return this.createPatientForm.get('first_name'); }
-
-  get first_surname() { return this.createPatientForm.get('first_surname'); }
-
-  get second_surname() { return this.createPatientForm.get('second_surname'); }
-
   get subject() { return this.createPatientForm.get('subject'); }
 
   get gender() { return this.createPatientForm.get('gender'); }
@@ -620,13 +588,9 @@ export class DetailsPatientComponent implements OnInit {
 
   get birth_date() { return this.createPatientForm.get('birth_date'); }
 
-  get birth_city() { return this.createPatientForm.get('birth_city'); }
-
   get years_study() { return this.createPatientForm.get('years_study'); }
 
   get study_years() { return this.createPatientForm.get('study_years'); }
-
-  get birth_department() { return this.createPatientForm.get('birth_department'); }
 
   get institutions_id() { return this.createPatientForm.get('institutions_id'); }
 

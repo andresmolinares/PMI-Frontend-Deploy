@@ -46,95 +46,6 @@
 
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            <ng-container *ngIf="first_name != null">
-                                <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)"
-                                    class="alert alert-danger">
-                                    <div *ngIf="first_name.errors?.['required']">
-                                        El nombre es requerido.
-                                    </div>
-                                    <div *ngIf="first_name.errors?.['minlength']">
-                                        El nombre debe ser Mínimo de 3 caracteres.
-                                    </div>
-                                    <div *ngIf="first_name.errors?.['maxlength']">
-                                        El nombre debe ser Máximo de 50 caracteres.
-                                    </div>
-                                </div>
-                            </ng-container>
-                            <div class="form-div">
-                                <label for="first_name" class="form-tag">Nombres</label>
-                                <input id="first_name" formControlName="first_name" type="text"
-                                    placeholder="Ingrese el nombre" class="form-input">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <ng-container *ngIf="first_surname != null">
-                                <div *ngIf="first_surname.invalid && (first_surname.dirty || first_surname.touched)"
-                                    class="alert alert-danger">
-                                    <div *ngIf="first_surname.errors?.['required']">
-                                        El primer apellido es requerido.
-                                    </div>
-                                    <div *ngIf="first_surname.errors?.['minlength']">
-                                        El primer apellido debe ser Mínimo de 3 caracteres.
-                                    </div>
-                                    <div *ngIf="first_surname.errors?.['maxlength']">
-                                        El primer apellido debe ser Máximo de 50 caracteres.
-                                    </div>
-                                </div>
-                            </ng-container>
-                            <div class="form-div">
-                                <label for="first_surname" class="form-tag">Primer Apellido</label>
-                                <input id="first_surname" formControlName="first_surname" type="text"
-                                    placeholder="Ingrese el primer apellido" class="form-input">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <ng-container *ngIf="second_surname != null">
-                                <div *ngIf="second_surname.invalid && (second_surname.dirty || second_surname.touched)"
-                                    class="alert alert-danger">
-                                    <div *ngIf="second_surname.errors?.['required']">
-                                        El segundo apellido es requerido.
-                                    </div>
-                                    <div *ngIf="second_surname.errors?.['minlength']">
-                                        El segundo apellido debe ser Mínimo de 3 caracteres.
-                                    </div>
-                                    <div *ngIf="second_surname.errors?.['maxlength']">
-                                        El segundo apellido debe ser Máximo de 50 caracteres.
-                                    </div>
-                                </div>
-                            </ng-container>
-                            <div class="form-div">
-                                <label for="second_surname" class="form-tag">Segundo Apellido</label>
-                                <input id="second_surname" formControlName="second_surname" type="text"
-                                    placeholder="Ingrese el segundo apellido" class="form-input">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <ng-container *ngIf="institutions_id != null">
-                                <div *ngIf="institutions_id.invalid && (institutions_id.dirty || institutions_id.touched)"
-                                    class="alert alert-danger">
-                                    <div *ngIf="institutions_id.errors?.['required']">
-                                        La institución es requerida.
-                                    </div>
-                                </div>
-                            </ng-container>
-                            <div class="form-div">
-                                <label for="institutions_id" class="form-tag">Institución</label>
-                                <select formControlName="institutions_id" class="custom-select">
-                                    <option selected disabled value="">Seleccionar...</option>
-                                    <option *ngFor="let institution of institutions" [value]="institution.id">
-                                        {{institution.name}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-md-6">
                             <ng-container *ngIf="gender != null">
                                 <div *ngIf="gender.invalid && (gender.dirty || gender.touched)"
                                     class="alert alert-danger">
@@ -198,46 +109,6 @@
                                 <label for="birth_date" class="form-tag">Fecha de nacimiento</label>
                                 <input id="birth_date" formControlName="birth_date" type="date"
                                     placeholder="Ingrese la fecha de nacimiento" class="form-input">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <ng-container *ngIf="birth_department != null">
-                                <div *ngIf="birth_department.invalid && (birth_department.dirty || birth_department.touched)"
-                                    class="alert alert-danger">
-                                    <div *ngIf="birth_department.errors?.['required']">
-                                        El departamento de nacimiento es requerido.
-                                    </div>
-                                </div>
-                            </ng-container>
-                            <div class="form-div">
-                                <label for="birth_department" class="form-tag">Departamento de nacimiento</label>
-                                <select formControlName="birth_department" (ngModelChange)="onChangeDepartment($event)"
-                                    class="custom-select">
-                                    <option selected disabled value="">Seleccionar...</option>
-                                    <option *ngFor="let department of departments" [value]="[department.iso2]">
-                                        {{department.name}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <ng-container *ngIf="birth_city != null">
-                                <div *ngIf="birth_city.invalid && (birth_city.dirty || birth_city.touched)"
-                                    class="alert alert-danger">
-                                    <div *ngIf="birth_city.errors?.['required']">
-                                        La ciudad de nacimiento es requerida.
-                                    </div>
-                                </div>
-                            </ng-container>
-                            <div class="form-div">
-                                <label for="birth_city" class="form-tag">Ciudad de nacimiento</label>
-                                <select formControlName="birth_city" class="custom-select">
-                                    <option selected disabled value="">Seleccionar...</option>
-                                    <option *ngFor="let city of cities" [value]="[city.name]">{{city.name}}</option>
-                                </select>
                             </div>
                         </div>
                     </div>
@@ -334,6 +205,28 @@
                                     <option value="4">Nivel 4</option>
                                     <option value="5">Nivel 5</option>
                                     <option value="6">Nivel 6</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="institutions_id != null">
+                                <div *ngIf="institutions_id.invalid && (institutions_id.dirty || institutions_id.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="institutions_id.errors?.['required']">
+                                        La institución es requerida.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="institutions_id" class="form-tag">Institución</label>
+                                <select formControlName="institutions_id" class="custom-select">
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option *ngFor="let institution of institutions" [value]="institution.id">
+                                        {{institution.name}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
