@@ -102,6 +102,19 @@ export class DetailsPatientComponent implements OnInit {
       socioeconomic_status: new FormControl(null, [
         Validators.required,
       ]),
+
+      leave_school: new FormControl(null, [
+        Validators.required,
+      ]),
+
+      domestic_violence: new FormControl(null, [
+        Validators.required,
+      ]),
+
+      displaced_by_violence: new FormControl(null, [
+        Validators.required,
+      ]),
+
     });
 
     this.lawViolationForm = this._formBuilder.group({
@@ -160,6 +173,8 @@ export class DetailsPatientComponent implements OnInit {
       cocaine: new FormControl(null, [
         Validators.required
       ]),
+
+      age_first_consumption: new FormControl(null)
     });
 
     this._route.params.subscribe(params => {
@@ -291,6 +306,9 @@ export class DetailsPatientComponent implements OnInit {
           schooling_level: this.patient.schooling_level ? this.patient.schooling_level : '',
           family_type: this.patient.family_type ? this.patient.family_type : '',
           socioeconomic_status: this.patient.socioeconomic_status ? this.patient.socioeconomic_status : '',
+          leave_school: this.patient.leave_school,
+          domestic_violence: this.patient.domestic_violence,
+          displaced_by_violence: this.patient.displaced_by_violence,
         });
 
       },
@@ -600,6 +618,13 @@ export class DetailsPatientComponent implements OnInit {
 
   get socioeconomic_status() { return this.createPatientForm.get('socioeconomic_status'); }
 
+  get leave_school() { return this.createPatientForm.get('leave_school'); }
+
+  get domestic_violence() { return this.createPatientForm.get('domestic_violence'); }
+
+  get displaced_by_violence() { return this.createPatientForm.get('displaced_by_violence'); }
+
+
   // supplemental data functions
   get children() { return this.supplDataForm.get('children'); }
 
@@ -624,6 +649,8 @@ export class DetailsPatientComponent implements OnInit {
   get weed() { return this.lawViolationForm.get('weed'); }
 
   get cocaine() { return this.lawViolationForm.get('cocaine'); }
+
+  get age_first_consumption() { return this.lawViolationForm.get('age_first_consumption'); }
 
   // law violations data functions
   get sentence_months() { return this.lawViolationForm.get('sentence_months'); }

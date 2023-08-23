@@ -1,11 +1,29 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb ms-4">
+        <li class="breadcrumb-item">
+            <a [routerLink]="'/PMI/patients'">Pacientes</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <a [routerLink]="['/PMI/patient/',patientId,'cognitive-tests']">Pruebas cognitivas</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Procesos y tareas cognitivas
+        </li>
+    </ol>
+</nav>
+
 <div class="section">
     <div class="section__content container__shadow mx-3">
         <h2 class="section__title">
             {{ test.description }} <span> <i class="bx bx-test-tube"></i></span>
         </h2>
-        <mat-tab-group mat-align-tabs="center" #matGroup>
+        <div *ngIf="fetchProcesses.length === 0">
+            <!-- Loading indicator -->
+            <h1 class="text-center">Cargando...</h1>
+        </div>
+        <mat-tab-group mat-align-tabs="center" #matGroup *ngIf="fetchProcesses.length > 0">
             <!-- Proceso -->
-            <mat-tab *ngFor="let process of processes; let i = index" label="{{ process.description }}">
+            <mat-tab *ngFor="let process of fetchProcesses; let i = index" label="{{ process.description }}">
                 <div class="text-center col-md-12" style="overflow: hidden;">
                     <h2 class="section__subtitle">{{ process.description }}</h2>
                     <div class="row my-4">

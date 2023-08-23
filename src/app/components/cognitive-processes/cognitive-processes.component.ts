@@ -21,6 +21,7 @@ export class CognitiveProcessesComponent implements OnInit {
   public processes: Array<any> = [];
   public tasks: Array<any> = [];
   public testScore: any;
+  public fetchProcesses: Array<any> = [];
 
   constructor(
     private _cookieService: CookieService,
@@ -30,19 +31,21 @@ export class CognitiveProcessesComponent implements OnInit {
     private _patientsService: PatientsService,
     public dialog: MatDialog
   ) {
+    console.log('Constructor called');
     this.token = this._cookieService.get('token');
 
     this._activatedRoute.params.subscribe(params => {
       this.patientId = params['patient'];
       this.testId = params['test'];
+
+      this.getResultsByPatient(this.patientId);
+      this.getProcessesByTest(this.testId);
+      this.getTest(this.testId);
+      this.getTestScorePatient();
     });
   }
 
   ngOnInit(): void {
-    this.getResultsByPatient();
-    this.getProcessesByTest(this.testId);
-    this.getTest(this.testId);
-    this.getTestScorePatient();
   }
 
   getTest(id: any) {
@@ -57,10 +60,12 @@ export class CognitiveProcessesComponent implements OnInit {
   }
 
   getProcessesByTest(testId: any) {
+    console.log('getProcessesByTest called');
     this._processesService.getPsychologicalProcessesByTest(this.token, testId).subscribe(
       response => {
+        console.log('Response received');
+        console.log(response.data);
         this.processes = response.data;
-
         for (let i = 0; i < this.processes.length; i++) {
           this.processes[i].psychological_tasks = [];
           for (let x = 0; x < this.tasks.length; x++) {
@@ -69,6 +74,7 @@ export class CognitiveProcessesComponent implements OnInit {
             }
           }
         }
+        this.fetchProcesses = this.processes;
       },
       error => {
         console.log(error);
@@ -76,12 +82,9 @@ export class CognitiveProcessesComponent implements OnInit {
     );
   }
 
-  getResultsByPatient(){
-    console.log(this.patientId);
-    console.log(this.token);
-    this._patientsService.get_patient_psychological_results(this.token, this.patientId).subscribe(
+  getResultsByPatient(patientId:any){
+    this._patientsService.get_patient_psychological_results(this.token, patientId).subscribe(
       response => {
-        console.log(response);
         this.tasks = response.data.psychological_tasks;
       },
       error => {

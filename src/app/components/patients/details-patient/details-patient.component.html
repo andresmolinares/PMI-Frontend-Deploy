@@ -230,6 +230,65 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="leave_school != null">
+                                <div *ngIf="leave_school.invalid && (leave_school.dirty || leave_school.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="leave_school.errors?.['required']">
+                                        El campo 'abandonó la escuela?' es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="leave_school" class="form-tag">Abandonó la escuela? *</label>
+                                <select formControlName="leave_school" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="domestic_violence != null">
+                                <div *ngIf="domestic_violence.invalid && (domestic_violence.dirty || domestic_violence.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="domestic_violence.errors?.['required']">
+                                        El campo 'violencia intrafamiliar?' es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="domestic_violence" class="form-tag">Violencia intrafamiliar? *</label>
+                                <select formControlName="domestic_violence" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="displaced_by_violence != null">
+                                <div *ngIf="displaced_by_violence.invalid && (displaced_by_violence.dirty || displaced_by_violence.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="displaced_by_violence.errors?.['required']">
+                                        El campo 'desplazado por la violencia?' es requerido.
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="displaced_by_violence" class="form-tag">Desplazado por la violencia? *</label>
+                                <select formControlName="displaced_by_violence" class="custom-select" required>
+                                    <option selected disabled value="">Seleccionar...</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row gap-2 justify-content-end">
@@ -479,6 +538,21 @@
                                     <option value="1">Si</option>
                                     <option value="0">No</option>
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <ng-container *ngIf="age_first_consumption != null">
+                                <div *ngIf="age_first_consumption.invalid && (age_first_consumption.dirty || age_first_consumption.touched)"
+                                    class="alert alert-danger">
+                                </div>
+                            </ng-container>
+                            <div class="form-div">
+                                <label for="age_first_consumption" class="form-tag">Edad de Primer Consumo de Drogas</label>
+                                <input id="age_first_consumption" formControlName="age_first_consumption" type="text" placeholder="Ingrese la edad de primer consumo"
+                                    class="form-input">
                             </div>
                         </div>
                     </div>
