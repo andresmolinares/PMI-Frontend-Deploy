@@ -22,6 +22,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ReportTestComponent } from './components/admin/psychological-tests/index-tests/report-test/report-test.component';
 import { IndexDatasetComponent } from './components/datasets/index-dataset/index-dataset.component';
 import { MriTestsComponent } from './components/mri-tests/mri-tests.component';
+import { IndexMriComponent } from './components/admin/mri-segments/index-mri/index-mri.component';
+import { ReportMriComponent } from './components/admin/mri-segments/index-mri/report-mri/report-mri.component';
 
 const appRoute: Routes = [
     {
@@ -199,7 +201,6 @@ const appRoute: Routes = [
                 data: { 
                     title: 'Datasets | PMI' 
                 }, 
-                canActivate: [AdminGuard], 
                 children: [
                     { 
                         path: '', 
@@ -208,15 +209,31 @@ const appRoute: Routes = [
                         }, 
                         component: IndexDatasetComponent
                     },
-                    // { 
-                    //     path: 'details-patient/:id', 
-                    //     data: { 
-                    //         title: 'Detalles del dataset | PMI' 
-                    //     }, 
-                    //     component: DetailsPatientComponent 
-                    // },
                 ]
             },
+            {
+                path: 'mri-segments',
+                data: {
+                    title: 'Segmentos MRI | PMI'
+                },
+                children: [
+                    {
+                        path: '',
+                        data: {
+                            title: 'Segmentos | PMI'
+                        },
+                        component: IndexMriComponent
+                    },
+                    {
+                        path: ':id/report-mri', 
+                        data: { 
+                            title: 'Reporte de MRI | PMI' 
+                        },
+                        canActivate: [AdminGuard],
+                        component: ReportMriComponent,
+                    }
+                ]
+            }
         ]
     },
 

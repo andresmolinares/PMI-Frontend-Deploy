@@ -1,6 +1,6 @@
 <div class="section">
     <div class="section__content container__shadow mx-3">
-        <h2 class="section__title">Reporte de prueba: {{ description }}<span></span></h2>
+        <h2 class="section__title">Reporte de segmento MRI: {{ description }}<span></span></h2>
 
         <div class="row">
             <div class="col-12 col-md-6">
@@ -19,7 +19,7 @@
                     <select [formControl]="chartType" class="custom-select" required>
                         <option selected value="">Todos</option>
                         <option value="1">Barras</option>
-                        <option value="2">Caja y bigotes</option>
+                        <option value="2">Cajas y bigotes</option>
                     </select>
                 </div>
             </div>
@@ -28,14 +28,17 @@
         <hr>
 
         <div class="row">
-            <div class="col-4 text-center">
-                <h2><b>Promedio puntaje: </b>{{ testAverage }}</h2>
+            <div class="col-3 text-center">
+                <h2><b>Promedio: </b>{{ mriAvg }}</h2>
             </div>
-            <div class="col-4 text-center">
-                <h2><b>Puntaje Mínimo: </b>{{ minScore }}</h2>
+            <div class="col-3 text-center">
+                <h2><b>Mediana: </b>{{ mriMedian }}</h2>
             </div>
-            <div class="col-4 text-center">
-                <h2><b>Puntaje Máximo: </b>{{ maxScore }}</h2>
+            <div class="col-3 text-center">
+                <h2><b>Mínimo: </b>{{ minMri }}</h2>
+            </div>
+            <div class="col-3 text-center">
+                <h2><b>Máximo: </b>{{ maxMri }}</h2>
             </div>
         </div>
 

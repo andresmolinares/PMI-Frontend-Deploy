@@ -7,33 +7,35 @@ import { Chart, registerables } from 'chart.js';
 import { BoxPlotController, BoxAndWiskers } from '@sgratzl/chartjs-chart-boxplot'
 import { PsychologicalTestsService } from 'src/app/services/psychological-tests.service';
 import { forkJoin } from 'rxjs';
+import { MriService } from 'src/app/services/mri.service';
 Chart.register(...registerables, BoxPlotController, BoxAndWiskers);
 
 declare var iziToast: any;
 
 @Component({
-  selector: 'app-report-test',
-  templateUrl: './report-test.component.html',
-  styleUrls: ['./report-test.component.scss']
+  selector: 'app-report-mri',
+  templateUrl: './report-mri.component.html',
+  styleUrls: ['./report-mri.component.scss']
 })
-export class ReportTestComponent implements OnInit {
+export class ReportMriComponent implements OnInit {
   @ViewChild('canvas') canvas: ElementRef | any;
   @ViewChild('canvasBoxPlot') canvasBoxPlot: ElementRef | any;
 
   public description: any;
   public token: any;
-  public testId: any;
-  public maxScore: any;
-  public minScore: any;
-  public testAverage: any;
+  public mri_id: any;
+  public maxMri: any;
+  public minMri: any;
+  public mriAvg: any;
+  public mriMedian: any;
   public chart: any;
   public chartBoxPlot: any;
-  public testAverageE: any;
-  public testAverageC: any;
-  public minScoreE: any;
-  public maxScoreE: any;
-  public minScoreC: any;
-  public maxScoreC: any;
+  public mriAvgE: any;
+  public mriAvgC: any;
+  public minMriE: any;
+  public maxMriE: any;
+  public minMriC: any;
+  public maxMriC: any;
 
   public subject = new FormControl("");
 
@@ -42,12 +44,12 @@ export class ReportTestComponent implements OnInit {
   constructor(
     private _cookieService: CookieService,
     private _activatedRoute: ActivatedRoute,
-    private _reportTest: ReportTestService,
-    private _psychologicalTest: PsychologicalTestsService
+    private _reportMriService: MriService,
+    private _mriService: MriService
   ) {
     this.token = this._cookieService.get('token');
     this._activatedRoute.params.subscribe(params => {
-      this.testId = params['id'];
+      this.mri_id = params['id'];
     });
 
     this.subject.valueChanges.subscribe((value: any) => {
@@ -60,9 +62,9 @@ export class ReportTestComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this._psychologicalTest.getPsychologicalTest(this.testId, this.token).subscribe(
+    this._mriService.get_mri_by_id(this.mri_id, this.token).subscribe(
       response => {
-        this.description = response.data.description;
+        this.description = response.data.long_region_name;
         this.getReportTestGraphic();
       },
       error => {
@@ -72,11 +74,12 @@ export class ReportTestComponent implements OnInit {
   }
 
   getReportTest(is_subject = null) {
-    this._reportTest.get_report_test(this.token, this.testId, is_subject).subscribe(
+    this._reportMriService.get_report_mri(this.token, this.mri_id, is_subject).subscribe(
       response => {
-        this.testAverage = response.data.test_average;
-        this.maxScore = response.data.max_score;
-        this.minScore = response.data.min_score;
+        this.mriAvg = response.data.avg;
+        this.maxMri = response.data.max;
+        this.minMri = response.data.min;
+        this.mriMedian = response.data.median;
       },
       error => {
         console.log(error);
@@ -90,23 +93,23 @@ export class ReportTestComponent implements OnInit {
   }
 
   getReportTestGraphic() {
-    const request1$ = this._reportTest.get_report_test(this.token, this.testId, 1);
-    const request2$ = this._reportTest.get_report_test(this.token, this.testId, 0);
+    const request1$ = this._mriService.get_report_mri(this.token, this.mri_id, 1);
+    const request2$ = this._mriService.get_report_mri(this.token, this.mri_id, 0);
   
     forkJoin([request1$, request2$]).subscribe(
       ([response1, response2]) => {
         //grupo de estudio
-        this.testAverageE = response1.data.test_average;
-        this.maxScoreE = response1.data.max_score;
-        this.minScoreE = response1.data.min_score;
+        this.mriAvgE = response1.data.avg;
+        this.maxMriE = response1.data.max;
+        this.minMriE = response1.data.min;
   
-        //grupo de control
-        this.testAverageC = response2.data.test_average;
-        this.maxScoreC = response2.data.max_score;
-        this.minScoreC = response2.data.min_score;
+        // //grupo de control
+        this.mriAvgC = response2.data.avg;
+        this.maxMriC = response2.data.max;
+        this.minMriC = response2.data.min;
   
         this.createChart();
-        this.createBoxPlotChart(response1.data.scores_test, response2.data.scores_test);
+        this.createBoxPlotChart(response1.data.volumes_mri, response2.data.volumes_mri);
       },
       error => {
         console.log(error);
@@ -127,12 +130,12 @@ export class ReportTestComponent implements OnInit {
         datasets: [
         {
           label: 'Grupo estudio',
-          data: [this.maxScoreE, this.minScoreE, this.testAverageE],
+          data: [this.maxMriE, this.minMriE, this.mriAvgE],
           borderWidth: 1
         },
         {
           label: 'Grupo control',
-          data: [this.maxScoreC, this.minScoreC, this.testAverageC],
+          data: [this.maxMriC, this.minMriC, this.mriAvgC],
           borderWidth: 1
         },
       ]
@@ -181,4 +184,5 @@ export class ReportTestComponent implements OnInit {
       }
     });
   }
+
 }

@@ -61,6 +61,8 @@ import { IndexDatasetComponent } from './components/datasets/index-dataset/index
 import { DatasetDescriptionComponent } from './components/datasets/dataset-description/dataset-description.component';
 import { EegTestsComponent } from './components/eeg-tests/eeg-tests.component';
 import { MriTestsComponent } from './components/mri-tests/mri-tests.component';
+import { IndexMriComponent } from './components/admin/mri-segments/index-mri/index-mri.component';
+import { ReportMriComponent } from './components/admin/mri-segments/index-mri/report-mri/report-mri.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +105,8 @@ import { MriTestsComponent } from './components/mri-tests/mri-tests.component';
     DatasetDescriptionComponent,
     EegTestsComponent,
     MriTestsComponent,
+    IndexMriComponent,
+    ReportMriComponent,
   ],
   imports: [
     BrowserModule,

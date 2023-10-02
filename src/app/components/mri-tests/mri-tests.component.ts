@@ -15,7 +15,7 @@ declare var iziToast: any;
 })
 
 export class MriTestsComponent implements OnInit {
-  public displayedColumns: string[] = ['description', 'volume'];
+  public displayedColumns: string[] = ['short_region_name', 'long_region_name', 'hemisphere', 'lobe', 'volume'];
   public dataSource: any;
   public token:any;
   public patient_id:any;
@@ -55,6 +55,7 @@ export class MriTestsComponent implements OnInit {
     this._patientsService.get_mri_tests_patient(this.token, this.patient_id).subscribe(
       response => {
         if (response.data.mris.length != 0) {
+          console.log(response.data.mris);
           this.brainStructuresMri = response.data.mris[0].brain_structures;
           this.dataSource = new MatTableDataSource(this.brainStructuresMri);
           this.dataSource.paginator = this.paginator;
